@@ -1,0 +1,48 @@
+spring:
+  jpa:
+    show-sql: false    
+    open-in-view: false
+  h2:
+    console:
+      enabled: false   
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 592478762979-2i1egjvj2hums333unp6fnm2j982tpj4.apps.googleusercontent.com
+            client-secret: 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
+          github:
+            client-id: 2b1382f968e52d6a5b44
+            client-secret: 96fc54e18f72f2982bef16c35268bc76b2323996
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  endpoint:
+    health:
+      show-details: always
+      
+logging:
+  level:
+    '[org.springframework.security]': debug
+  
+  
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - prod
+      
+  datasource:
+    url: jdbc:postgresql:member-documents
+    username: postgres
+    password: postgres
+          
+    hibernate:
+      ddl-auto: create-drop
+  
